@@ -1,0 +1,16 @@
+{
+  "menu": [
+    {
+      "url": "/parkir",
+      "name": "Parking Area",
+      "icon": "menu-icon tf-icons bx bxs-parking",
+      "slug": "dashboard"
+    },
+    {
+      "url": "/meeting",
+      "name": "Meeting Room",
+      "icon": "menu-icon tf-icons bx bx-network-chart",
+      "slug": "dashboard"
+    }
+  ]
+}
