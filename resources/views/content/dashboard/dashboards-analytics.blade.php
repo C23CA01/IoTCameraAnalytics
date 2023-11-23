@@ -28,7 +28,7 @@
               </div>
             </div> -->
             <span class="d-block mb-1">Today's Average</span>
-            <h4 class="card-title mb-2">12</h3>
+            <h4 class="card-title mb-2">{{ $todayAverage }}</h3>
             <small class="text-success fw-semibold"></i>Vehicle</small>
           </div>
         </div>
@@ -42,7 +42,7 @@
               </div>
             </div> -->
             <span class="d-block mb-1">Weekly Average</span>
-            <h4 class="card-title mb-2">15</h3>
+            <h4 class="card-title mb-2">{{ $weeklyAverage }}</h3>
             <small class="text-success fw-semibold"></i>Vehicle</small>
           </div>
         </div>
@@ -56,8 +56,8 @@
               </div>
             </div> -->
             <span class="d-block mb-1">Top Parking Day</span>
-            <h4 class="card-title mb-2">Wednesday</h3>
-            <small class="text-success fw-semibold"></i>15 Vehicle</small>
+            <h4 class="card-title mb-2">{{ $topParkingDay->day }}</h3>
+            <small class="text-success fw-semibold"></i>{{ $topParkingDay->average }} Vehicle</small>
           </div>
         </div>
       </div>
@@ -70,8 +70,8 @@
               </div>
             </div> -->
             <span class="d-block mb-1">Lowest Parking Day</span>
-            <h4 class="card-title mb-2">Friday</h3>
-            <small class="text-success fw-semibold"></i>9 Vehicle</small>
+            <h4 class="card-title mb-2">{{ $lowestParkingDay->day }}</h3>
+            <small class="text-success fw-semibold"></i>{{ $lowestParkingDay->average }} Vehicle</small>
           </div>
         </div>
       </div>
