@@ -1,13 +1,13 @@
 {
   "menu": [
     {
-      "url": "/parkir",
+      "url": "/admin/parking",
       "name": "Parking Area",
       "icon": "menu-icon tf-icons bx bxs-parking",
       "slug": "dashboard"
     },
     {
-      "url": "/meeting",
+      "url": "/admin/meeting",
       "name": "Meeting Room",
       "icon": "menu-icon tf-icons bx bx-network-chart",
       "slug": "dashboard"

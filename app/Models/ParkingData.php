@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
 
+
 class ParkingData extends Model
 {
     protected $table = 'parking_data';
@@ -25,7 +26,7 @@ class ParkingData extends Model
     }
 
     public static function topParkingDay(){
-        return static::select(DB::raw('DAYNAME(date) as day'), DB::raw('AVG(CAST(vehicle_count AS SIGNED)) as average'))
+        return static::select(DB::raw('DAYNAME(date) as day'), DB::raw('ROUND(AVG(CAST(vehicle_count AS SIGNED))) as average'))
             ->whereBetween('Date', [now()->startOfWeek(), now()->endOfWeek()])
             ->groupBy('day')
             ->orderByDesc('average')
@@ -33,10 +34,11 @@ class ParkingData extends Model
     }
 
     public static function lowestParkingDay(){
-        return static::select(DB::raw('DAYNAME(date) as day'), DB::raw('AVG(CAST(vehicle_count AS SIGNED)) as average'))
+        return static::select(DB::raw('DAYNAME(date) as day'), DB::raw('ROUND(AVG(CAST(vehicle_count AS SIGNED))) as average'))
             ->whereBetween('Date', [now()->startOfWeek(), now()->endOfWeek()])
             ->groupBy('day')
             ->orderBy('average')
             ->first();
     }
+
 }

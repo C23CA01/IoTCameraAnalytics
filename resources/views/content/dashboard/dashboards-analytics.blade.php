@@ -102,8 +102,8 @@
             </div>
           </div>
           
-          <div id="growthChart"></div>
-          <div class="text-center fw-medium pt-3 mb-2">11/15 Space Used</div>
+          <div id="growthChart" data-chart-data="{{ $percentage }}"></div>
+          <div class="text-center fw-medium pt-3 mb-2">{{ $spaceUsed }}/20 Space Used</div>
         </div>
       </div>
     </div>
