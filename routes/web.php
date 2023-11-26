@@ -58,6 +58,7 @@ Route::get('/auth/forgot-password-basic', [ForgotPasswordBasic::class, 'index'])
 Route::group(['prefix'=> 'admin','middleware' => ['auth'], 'as' => 'admin.'], function(){
     Route::get('/parking', [Analytics::class, 'index'])->name('dashboard-analytics');
     Route::get('/parking', [Analytics::class, 'parkingData'])->name('dashboard-analytics');
+    // Route::get('/parking', [pChart::class, 'showChart'])->name('dashboard-analytics');
     Route::get('/meeting', [Meeting::class, 'index'])->name('dashboard-meeting');
 });
 

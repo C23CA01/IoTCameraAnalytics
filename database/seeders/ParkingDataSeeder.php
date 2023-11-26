@@ -13,8 +13,8 @@ class ParkingDataSeeder extends Seeder
     
     public function run(): void
     {
-        $startDateTime = Carbon::parse('2023-11-23 10:30:00');
-        $endDateTime = Carbon::parse('2023-11-23 11:10:00');
+        $startDateTime = Carbon::parse('2023-11-24 08:00:00');
+        $endDateTime = Carbon::parse('2023-11-24 16:00:00');
         $intervalMinutes = 10;
 
         $currentDateTime = clone $startDateTime;

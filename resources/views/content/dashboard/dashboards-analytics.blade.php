@@ -103,7 +103,7 @@
           </div>
           
           <div id="growthChart" data-chart-data="{{ $percentage }}"></div>
-          <div class="text-center fw-medium pt-3 mb-2">{{ $spaceUsed }}/20 Space Used</div>
+          <div class="text-center fw-medium pt-3 mb-2">{{ $spaceUsed }}/25 Space Used</div>
         </div>
       </div>
     </div>
@@ -120,11 +120,14 @@
                 <div class="card-title">
                   <h5 class="text-nowrap mb-2">Weekly Parking Usage</h5>
                 </div>
-              <div id="WeeklyChart"></div>
+              <div id="weeklyChart"></div>
           </div>
         </div>
       </div>
     </div>
   </div>
 </div>
+<script>
+    var chartData = {!! $weeklyParkingUsage !!};
+</script>
 @endsection

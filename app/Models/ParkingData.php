@@ -10,9 +10,7 @@ use Illuminate\Support\Facades\DB;
 class ParkingData extends Model
 {
     protected $table = 'parking_data';
-    protected $casts = [
-        'vehicle_count' => 'integer',
-    ];
+    protected $fillable = ['Date', 'Time', 'vehicle_count'];
     use HasFactory;
 
     public static function todayAverage()
@@ -30,6 +28,7 @@ class ParkingData extends Model
             ->whereBetween('Date', [now()->startOfWeek(), now()->endOfWeek()])
             ->groupBy('day')
             ->orderByDesc('average')
+            ->orderBy('day')
             ->first();
     }
 
@@ -38,7 +37,15 @@ class ParkingData extends Model
             ->whereBetween('Date', [now()->startOfWeek(), now()->endOfWeek()])
             ->groupBy('day')
             ->orderBy('average')
+            ->orderBy('day')
             ->first();
     }
+
+    // public static function weeklyParkingUsage(){
+    //     return static::select(DB::raw('DATE(date) as date'), DB::raw('AVG(vehicle_count) as average'))
+    //     ->whereIn(DB::raw('DAYOFWEEK(Date)'), [2, 3, 4, 5, 6]) // Hari Senin (2) hingga Jumat (6)
+    //     ->groupBy('date')
+    //     ->get();
+    // }
 
 }
