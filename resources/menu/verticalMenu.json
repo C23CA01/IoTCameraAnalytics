@@ -4,13 +4,13 @@
       "url": "/admin/parking",
       "name": "Parking Area",
       "icon": "menu-icon tf-icons bx bxs-parking",
-      "slug": "dashboard"
+      "slug": "dashboard-analytics"
     },
     {
       "url": "/admin/meeting",
       "name": "Meeting Room",
       "icon": "menu-icon tf-icons bx bx-network-chart",
-      "slug": "dashboard"
+      "slug": "dashboard-meeting"
     }
   ]
 }

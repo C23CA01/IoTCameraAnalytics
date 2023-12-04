@@ -14,8 +14,8 @@ class MeetingDataSeeder extends Seeder
      */
     public function run(): void
     {
-        $startDateTime = Carbon::parse('2023-11-06 08:00:00');
-        $endDateTime = Carbon::parse('2023-11-19 16:00');
+        $startDateTime = Carbon::parse('2023-12-04 09:50:00');
+        $endDateTime = Carbon::parse('2023-12-04 12:00:00');
         $intervalMinutes = 10;
 
         $currentDateTime = clone $startDateTime;

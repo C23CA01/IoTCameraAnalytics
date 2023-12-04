@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
+use Carbon\Carbon;
 
 
 class ParkingData extends Model
@@ -28,7 +29,7 @@ class ParkingData extends Model
             ->whereBetween('Date', [now()->startOfWeek(), now()->endOfWeek()])
             ->groupBy('day')
             ->orderByDesc('average')
-            ->orderBy('day')
+            ->orderByDesc('date')
             ->first();
     }
 
@@ -37,15 +38,7 @@ class ParkingData extends Model
             ->whereBetween('Date', [now()->startOfWeek(), now()->endOfWeek()])
             ->groupBy('day')
             ->orderBy('average')
-            ->orderBy('day')
+            ->orderByDesc('date')
             ->first();
     }
-
-    // public static function weeklyParkingUsage(){
-    //     return static::select(DB::raw('DATE(date) as date'), DB::raw('AVG(vehicle_count) as average'))
-    //     ->whereIn(DB::raw('DAYOFWEEK(Date)'), [2, 3, 4, 5, 6]) // Hari Senin (2) hingga Jumat (6)
-    //     ->groupBy('date')
-    //     ->get();
-    // }
-
 }

@@ -2,7 +2,7 @@
 
   <!-- ! Hide app brand if navbar-full -->
   <div class="app-brand demo">
-    <a href="{{url('/')}}" class="app-brand-link">
+    <a href="{{url('/admin/parking')}}" class="app-brand-link">
               <span class="app-brand-logo demo">
                 <img src="{{ asset('assets/img/favicon/logo.png') }}" alt="">
               </span>

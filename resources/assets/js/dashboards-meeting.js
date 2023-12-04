@@ -15,10 +15,10 @@
   // Daily Report Chart - Bar Chart
   // --------------------------------------------------------------------
   document.addEventListener('DOMContentLoaded', function () {
-    var totalRevenueChartOptions = {
+    var dailyMeetingChartOptions = {
       series: [{
-        name: 'Today Parking Usage',
-        data: vehicleCounts,
+        name: 'Today Meeting Usage',
+        data: peopleCounts,
         color: '#696cff'
       }],
       chart: {
@@ -135,8 +135,8 @@
     // }
     };
     
-    var todayParkingUsage = new ApexCharts(document.getElementById('dailyChart'), totalRevenueChartOptions);
-    todayParkingUsage.render();
+    var todayMeetingUsage = new ApexCharts(document.getElementById('dailyChart'), dailyMeetingChartOptions);
+    todayMeetingUsage.render();
   });
 
 
@@ -148,7 +148,7 @@
       series: [
         {
           name: 'Average Vehicle Count',
-          data: weeklyParkingUsage,
+          data: weeklyMeetingUsage,
         }
       ],
       chart: {
@@ -215,7 +215,10 @@
         },
         axisBorder: {
           show: false
-        }
+        },
+        title: {
+          text: 'Day',
+        },
       },
       yaxis: {
         min: 0,

@@ -20,10 +20,13 @@ class Analytics extends Controller
     $weeklyAverage = (int) ParkingData::weeklyAverage();
     $topParkingDay = ParkingData::topParkingDay();
     $lowestParkingDay = ParkingData::lowestParkingDay();
+
+    // Space Used Count
     $spaceUsed = DB::table('parking_data')->latest('created_at')->value('vehicle_count');
     $totalCapacity = 25;
     $percentage = ($spaceUsed / $totalCapacity) * 100;
 
+    // Weekly Parking Usage Chart
     $days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'];
     $averageData = [];
 
@@ -38,6 +41,17 @@ class Analytics extends Controller
       $averageData[] = round($average);
     }
 
+    //Today's Parking Usage Chart
+
+    $todayData = ParkingData::where('date', now()->toDateString())->get();
+    $timeLabels = [];
+    $vehicleCounts = [];
+
+    foreach ($todayData as $data) {
+      $timeLabels[] = $data->Time;
+      $vehicleCounts[] = $data->vehicle_count;
+    }
+
 
         return view('content.dashboard.dashboards-analytics', [
           'todayAverage' => $todayAverage,
@@ -46,8 +60,8 @@ class Analytics extends Controller
           'lowestParkingDay' => $lowestParkingDay,
           'spaceUsed' => $spaceUsed,
           'percentage' => $percentage,
-          'weeklyParkingUsage' => json_encode($averageData)
-        ]);
+          'weeklyParkingUsage' => json_encode($averageData),
+        ], compact('timeLabels', 'vehicleCounts'));
   }
 
 }
