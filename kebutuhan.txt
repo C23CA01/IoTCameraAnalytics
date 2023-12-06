@@ -1,0 +1,13 @@
+1. mempunyai 2 scene gambar =  1.jpg dan 2.jpg
+2. mengumpulkan data gambar, seperti apa free dan seperti apa used tersedia berdasarkan gambar tersebut
+3. split data tersebu menjadi 2 yaitu train/ dan test/  (google_colab)
+    dataImage/train/free
+    dataImage/train/used
+    dataImage/test/free
+    dataImage/test/used
+
+
+
+4. ada beberapa script python : ColoredgeSelect, ROI, drawrect, ImagesThresholding di jadikan 1 folder .ipynb
+5. saved image untuk CNN model
+6. melatih model tersebut menggunakan transfer learning menggunakan model VGG (google_colab)
