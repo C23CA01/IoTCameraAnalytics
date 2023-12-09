@@ -7,3 +7,9 @@ https://colab.research.google.com/drive/12Q-C6Ga93Od27cnzotWMPncvwXCpu1LO?usp=sh
 
 proses pelatihan custom dataset model tersebut yang memanfaatkan storage drive : 
 https://drive.google.com/drive/folders/1pJFGKdozDHO2j-OryDAubuwhTY9xcGsN?usp=sharing
+
+
+
+## several failed development attempts
+- https://colab.research.google.com/drive/1u6zNZDtFcMFJ6-wIZwHRxpFovz-jo3ab?usp=sharing
+- https://colab.research.google.com/drive/1gPinDGV--SQj29wrdRhnrh4wgeJwmIf7?usp=sharing
