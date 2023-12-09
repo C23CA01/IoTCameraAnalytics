@@ -9,7 +9,7 @@ https://colab.research.google.com/drive/12Q-C6Ga93Od27cnzotWMPncvwXCpu1LO?usp=sh
 proses pelatihan custom dataset model tersebut yang memanfaatkan storage drive : 
 https://drive.google.com/drive/folders/1pJFGKdozDHO2j-OryDAubuwhTY9xcGsN?usp=sharing
 
-## finally after training the pre-trained models, Converted to tensorflow(.h5) format and then can see the layers :
+## finally after training the pre-trained models, Converted to tensorflow(.h5) format and then can see the trainable layers :
 ![Uji di local](./dokumentasi/ss4.png)
 
 ## several failed development attempts
