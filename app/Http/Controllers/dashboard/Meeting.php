@@ -17,8 +17,24 @@ class Meeting extends Controller
   public function meetingData(){
     $todayAverage = (int)MeetingData::todayAverage();
     $weeklyAverage = (int) MeetingData::weeklyAverage();
+
+    //Top MeetingDay
     $topMeetingDay = MeetingData::topMeetingDay();
+        if ($topMeetingDay === null) {
+          $topMeetingDay = [
+            'day' => null,
+            'people_count' => null,
+          ];
+        }
+
+    //Lowest Meeting Day    
     $lowestMeetingDay = MeetingData::lowestMeetingDay();
+        if ($lowestMeetingDay === null) {
+          $lowestMeetingDay = [
+            'day' => null,
+            'people_count' => null,
+          ];
+        }
 
     // Space Used Count
     $spaceUsed = DB::table('meeting_data')->latest('created_at')->value('people_count');
@@ -51,6 +67,10 @@ class Meeting extends Controller
       $peopleCounts[] = $data->people_count;
     }
 
+    //Get Weekly Period Date
+    $today = Carbon::now();
+    $friday = $today->startOfWeek()->addDays(4);
+
 
         return view('content.dashboard.dashboards-meeting', [
           'todayAverage' => $todayAverage,
@@ -59,6 +79,8 @@ class Meeting extends Controller
           'lowestMeetingDay' => $lowestMeetingDay,
           'spaceUsed' => $spaceUsed,
           'percentage' => $percentage,
+          'startOfWeek' => $startOfWeek->format('d/m/Y'),
+          'friday' => $endOfWeek->format('d/m/Y'),
           'weeklyMeetingUsage' => json_encode($averageData),
         ], compact('timeLabels', 'peopleCounts'));
   }

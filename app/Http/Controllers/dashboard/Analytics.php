@@ -18,13 +18,30 @@ class Analytics extends Controller
   public function parkingData(){
     $todayAverage = (int)ParkingData::todayAverage();
     $weeklyAverage = (int) ParkingData::weeklyAverage();
+
+    //Top Parking Day
     $topParkingDay = ParkingData::topParkingDay();
+    if ($topParkingDay === null) {
+      $topParkingDay = [
+        'day' => null,
+        'vehicle_count' => null,
+      ];
+    }
+
+    //Lowest Parking Day
     $lowestParkingDay = ParkingData::lowestParkingDay();
+    if ($lowestParkingDay === null) {
+      $lowestParkingDay = [
+        'day' => null,
+        'vehicle_count' => null,
+      ];
+    }
 
     // Space Used Count
     $spaceUsed = DB::table('parking_data')->latest('created_at')->value('vehicle_count');
     $totalCapacity = 25;
     $percentage = ($spaceUsed / $totalCapacity) * 100;
+
 
     // Weekly Parking Usage Chart
     $days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'];
@@ -41,9 +58,26 @@ class Analytics extends Controller
       $averageData[] = round($average);
     }
 
-    //Today's Parking Usage Chart
-
+    //Today's Chart
     $todayData = ParkingData::where('date', now()->toDateString())->get();
+    // // Hourly Parking Usage Chart
+    // $hourlyAverageData = DB::table('parking_data')
+    // ->select(DB::raw('HOUR(Time) as hour'), DB::raw('AVG(vehicle_count) as average'))
+    // ->whereDate('Date', Carbon::today())
+    // ->groupBy(DB::raw('HOUR(Time)'))
+    // ->orderBy('hour')
+    // ->get();
+
+    // // Format data untuk digunakan dalam chart
+    // $time = [];
+    // $hourlyAverage = [];
+
+    // foreach ($hourlyAverageData as $dataPoint) {
+    //     $time[] = $dataPoint->hour;
+    //     $hourlyAverage[] = (int)$dataPoint->average;
+    // }
+
+    //Real Time Parking Usage Chart
     $timeLabels = [];
     $vehicleCounts = [];
 
@@ -53,6 +87,11 @@ class Analytics extends Controller
     }
 
 
+    //Get Weekly Period Date
+    $today = Carbon::now();
+    $friday = $today->startOfWeek()->addDays(4);
+
+
         return view('content.dashboard.dashboards-analytics', [
           'todayAverage' => $todayAverage,
           'weeklyAverage' => $weeklyAverage,
@@ -60,7 +99,9 @@ class Analytics extends Controller
           'lowestParkingDay' => $lowestParkingDay,
           'spaceUsed' => $spaceUsed,
           'percentage' => $percentage,
-          'weeklyParkingUsage' => json_encode($averageData),
+          'startOfWeek' => $startOfWeek->format('d/m/Y'),
+          'friday' => $endOfWeek->format('d/m/Y'),
+          'weeklyParkingUsage' => json_encode($averageData)
         ], compact('timeLabels', 'vehicleCounts'));
   }
 

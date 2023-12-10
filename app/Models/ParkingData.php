@@ -25,20 +25,22 @@ class ParkingData extends Model
     }
 
     public static function topParkingDay(){
-        return static::select(DB::raw('DAYNAME(date) as day'), DB::raw('ROUND(AVG(CAST(vehicle_count AS SIGNED))) as average'))
-            ->whereBetween('Date', [now()->startOfWeek(), now()->endOfWeek()])
-            ->groupBy('day')
-            ->orderByDesc('average')
-            ->orderByDesc('date')
-            ->first();
+        return static::select(DB::raw('DAYNAME(Date) as day'), DB::raw('ROUND(AVG(CAST(vehicle_count AS SIGNED))) as average'))
+        ->whereBetween('Date', [now()->startOfWeek(), now()->endOfWeek()])
+        ->groupBy(DB::raw('DAYNAME(Date), Date'))
+        ->orderByDesc('average')
+        ->orderByDesc('Date') 
+        ->limit(1)
+        ->get();
     }
 
     public static function lowestParkingDay(){
-        return static::select(DB::raw('DAYNAME(date) as day'), DB::raw('ROUND(AVG(CAST(vehicle_count AS SIGNED))) as average'))
-            ->whereBetween('Date', [now()->startOfWeek(), now()->endOfWeek()])
-            ->groupBy('day')
-            ->orderBy('average')
-            ->orderByDesc('date')
-            ->first();
+        return static::select(DB::raw('DAYNAME(Date) as day'), DB::raw('ROUND(AVG(CAST(vehicle_count AS SIGNED))) as average'))
+        ->whereBetween('Date', [now()->startOfWeek(), now()->endOfWeek()])
+        ->groupBy(DB::raw('DAYNAME(Date), Date'))
+        ->orderBy('average')
+        ->orderByDesc('Date') 
+        ->limit(1)
+        ->get();
     }
 }

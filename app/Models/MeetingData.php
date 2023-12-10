@@ -24,20 +24,22 @@ class MeetingData extends Model
     }
 
     public static function topMeetingDay(){
-        return static::select(DB::raw('DAYNAME(date) as day'), DB::raw('ROUND(AVG(CAST(people_count AS SIGNED))) as average'))
-            ->whereBetween('Date', [now()->startOfWeek(), now()->endOfWeek()])
-            ->groupBy('day')
-            ->orderByDesc('average')
-            ->orderByDesc('date')
-            ->first();
+        return static::select(DB::raw('DAYNAME(Date) as day'), DB::raw('ROUND(AVG(CAST(people_count AS SIGNED))) as average'))
+        ->whereBetween('Date', [now()->startOfWeek(), now()->endOfWeek()])
+        ->groupBy(DB::raw('DAYNAME(Date), Date'))
+        ->orderByDesc('average')
+        ->orderByDesc('Date') 
+        ->limit(1)
+        ->get();
     }
 
     public static function lowestMeetingDay(){
-        return static::select(DB::raw('DAYNAME(date) as day'), DB::raw('ROUND(AVG(CAST(people_count AS SIGNED))) as average'))
-            ->whereBetween('Date', [now()->startOfWeek(), now()->endOfWeek()])
-            ->groupBy('day')
-            ->orderBy('average')
-            ->orderByDesc('date')
-            ->first();
+        return static::select(DB::raw('DAYNAME(Date) as day'), DB::raw('ROUND(AVG(CAST(people_count AS SIGNED))) as average'))
+        ->whereBetween('Date', [now()->startOfWeek(), now()->endOfWeek()])
+        ->groupBy(DB::raw('DAYNAME(Date), Date'))
+        ->orderBy('average') 
+        ->orderByDesc('Date') 
+        ->limit(1)
+        ->get();
     }
 }

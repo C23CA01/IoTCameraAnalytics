@@ -32,18 +32,15 @@ $navbarDetached = ($navbarDetached ?? '');
       </div>
       @endif
 
-      <!-- <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <!-- <div class="collapse navbar-collapse">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="javascript:void(0)">History</a>
+        <p id="lastUpdate">Last Update : </p>
         </li>
         </ul>
       </div> -->
       
         <ul class="navbar-nav flex-row align-items-center ms-auto">
-          <li class="nav-item">
-          <i class="bi bi-calendar"></i>
-          </li>
 
           <!-- User -->
           <li class="nav-item navbar-dropdown dropdown-user dropdown">
