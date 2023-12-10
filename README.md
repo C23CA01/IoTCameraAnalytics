@@ -1,4 +1,4 @@
-Hello this is a source code of IoT Dashboard using Laravel. This website is useing Sneat template from Bootstrap. Here are the steps to make this project run correctly in your computer:
+Hello this is a source code of IoT Dashboard using Laravel. This website is using Sneat template from Bootstrap. Here are the steps to make this project run correctly in your computer:
 
 ## Installation ⚒️
 
