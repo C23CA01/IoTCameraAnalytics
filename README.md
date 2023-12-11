@@ -55,11 +55,10 @@ from that repo I only did the GPU configuration and working environment, and cus
 
 ## Improvements
 after all the processes from the steps above it will produce (.weights) as yolov3 format, where the training results file will be converted to tensorflow (.h5) format and that has been successful,
-I wanted to make additional custom Dense Layer but I think it will take a lot of time
-
-and then the format is used to carry out inference prediction which is done at : 
+I wanted to make additional custom Dense Layer but I think it will take a lot of time 
+So I decided use the format (.h5) as Yolov3 Models to carry out inference prediction which is done at : 
 https://github.com/C23CA01/deploy-parking-models
 
-## several failed development attempts
+## below several failed development attempts
 - https://colab.research.google.com/drive/1u6zNZDtFcMFJ6-wIZwHRxpFovz-jo3ab?usp=sharing
 - https://colab.research.google.com/drive/1gPinDGV--SQj29wrdRhnrh4wgeJwmIf7?usp=sharing
