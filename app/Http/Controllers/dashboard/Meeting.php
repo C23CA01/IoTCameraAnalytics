@@ -17,24 +17,8 @@ class Meeting extends Controller
   public function meetingData(){
     $todayAverage = (int)MeetingData::todayAverage();
     $weeklyAverage = (int) MeetingData::weeklyAverage();
-
-    //Top MeetingDay
     $topMeetingDay = MeetingData::topMeetingDay();
-        if ($topMeetingDay === null) {
-          $topMeetingDay = [
-            'day' => null,
-            'people_count' => null,
-          ];
-        }
-
-    //Lowest Meeting Day    
     $lowestMeetingDay = MeetingData::lowestMeetingDay();
-        if ($lowestMeetingDay === null) {
-          $lowestMeetingDay = [
-            'day' => null,
-            'people_count' => null,
-          ];
-        }
 
     // Space Used Count
     $spaceUsed = DB::table('meeting_data')->latest('created_at')->value('people_count');
