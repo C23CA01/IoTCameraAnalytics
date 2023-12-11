@@ -9,9 +9,6 @@ https://colab.research.google.com/drive/12Q-C6Ga93Od27cnzotWMPncvwXCpu1LO?usp=sh
 The process of training a custom dataset model that utilizes storage drives:
 https://drive.google.com/drive/folders/1pJFGKdozDHO2j-OryDAubuwhTY9xcGsN?usp=sharing
 
-## finally after training the pre-trained models, Converted to tensorflow(.h5) format and then can see the trainable layers :
-![Uji di local](./dokumentasi/ss4.png)
-
 ## Step by Step
 Please Make sure you've already have dataset whichis the contain is annotated by yolo format using labelimg
 
@@ -52,6 +49,9 @@ drive.mount('/content/drive')
 !cd darknet && ./darknet detector train data/obj.data cfg/yolov3_training.cfg darknet53.conv.74 -dont_show
 ```
 from that repo I only did the GPU configuration and working environment, and customized the .cfg file to fit my dataset the process directed to my local drive, and I also Utilize the training procces in colab with existing pre-trained Yolov3 darknet 
+
+## finally after training the pre-trained models, Converted to tensorflow(.h5) format and then can see the trainable layers :
+![Uji di local](./dokumentasi/ss4.png)
 
 ## Improvements
 after all the processes from the steps above it will produce (.weights) as yolov3 format, where the training results file will be converted to tensorflow (.h5) format and that has been successful,
