@@ -49,7 +49,7 @@ drive.mount('/content/drive')
 10. Train your customize dataset with pre-tarain models
 ```bash
 %cd ../../
-!cd darknet && ./darknet detector /content/darknet/data/obj.data  /content/darknet/cfg/yolov3_training.cfg darknet53.conv.74 -dont_show
+!cd darknet && ./darknet detector train data/obj.data cfg/yolov3_training.cfg darknet53.conv.74 -dont_show
 ```
 from that repo I only did the GPU configuration and working environment, and customized the .cfg file to fit my dataset the process directed to my local drive, and I also Utilize the training procces in colab with existing pre-trained Yolov3 darknet 
 
