@@ -18,24 +18,9 @@ class Analytics extends Controller
   public function parkingData(){
     $todayAverage = (int)ParkingData::todayAverage();
     $weeklyAverage = (int) ParkingData::weeklyAverage();
-
-    //Top Parking Day
     $topParkingDay = ParkingData::topParkingDay();
-    if ($topParkingDay === null) {
-      $topParkingDay = [
-        'day' => null,
-        'vehicle_count' => null,
-      ];
-    }
-
-    //Lowest Parking Day
     $lowestParkingDay = ParkingData::lowestParkingDay();
-    if ($lowestParkingDay === null) {
-      $lowestParkingDay = [
-        'day' => null,
-        'vehicle_count' => null,
-      ];
-    }
+    
 
     // Space Used Count
     $spaceUsed = DB::table('parking_data')->latest('created_at')->value('vehicle_count');
