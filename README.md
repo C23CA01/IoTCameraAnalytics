@@ -43,7 +43,7 @@ drive.mount('/content/drive')
 !make
 ```
 6. set Pre-Trained configure layers and adjust the data already annotated
-7. copy Yolo Model configuration file to local storage(gdrive)
+7. copy the file configuration (.cfg) to local storage(gdrive)
 8. load your dataset and extract the zip dataset to directed in gdrive storage
 9. download PRE-TRAINED yolo weights https://pjreddie.com/media/files/darknet53.conv.74
 10. Train your customize dataset with pre-tarain models
