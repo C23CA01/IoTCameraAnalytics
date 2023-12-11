@@ -42,16 +42,16 @@ drive.mount('/content/drive')
 
 !make
 ```
-6. Pre-Trained configure layers and adjust the data already annotated
+6. set Pre-Trained configure layers and adjust the data already annotated
 7. copy Yolo Model configuration file to local storage(gdrive)
-8. load your dataset
-9. download PRE-TRAINED yolo weights
+8. load your dataset and extract the zip dataset to directed in gdrive storage
+9. download PRE-TRAINED yolo weights https://pjreddie.com/media/files/darknet53.conv.74
 10. Train your customize dataset with pre-tarain models
 ```bash
 %cd ../../
 !cd darknet && ./darknet detector /content/darknet/data/obj.data  /content/darknet/cfg/yolov3_training.cfg darknet53.conv.74 -dont_show
 ```
-from that repo I only did the GPU configuration and working environment, and customized the .cfg file to suit the dataset that had been specified
+from that repo I only did the GPU configuration and working environment, and customized the .cfg file to fit my dataset the process directed to my local drive, and I also Utilize the training procces in colab with existing pre-trained Yolov3 darknet 
 
 ## several failed development attempts
 - https://colab.research.google.com/drive/1u6zNZDtFcMFJ6-wIZwHRxpFovz-jo3ab?usp=sharing
