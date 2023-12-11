@@ -41,8 +41,8 @@
         <div class="card">
           <div class="card-body">
             <span class="d-block mb-1">Top Meeting Day</span>
-            <h4 class="card-title mb-2">{{ $topMeetingDay[0]->day }}</h3>
-            <small class="text-success fw-semibold"></i>{{ $topMeetingDay[0]->average }} People</small>
+            <h4 class="card-title mb-2">{{ $topMeetingDay[0]->day ?? 'Null'}}</h3>
+            <small class="text-success fw-semibold"></i>{{ $topMeetingDay[0]->average ?? '0'}} People</small>
           </div>
         </div>
       </div>
@@ -50,8 +50,8 @@
         <div class="card">
           <div class="card-body">
             <span class="d-block mb-1">Lowest Meetings Day</span>
-            <h4 class="card-title mb-2">{{ $lowestMeetingDay[0]->day }}</h3>
-            <small class="text-success fw-semibold"></i>{{ $lowestMeetingDay[0]->average }} People</small>
+            <h4 class="card-title mb-2">{{ $lowestMeetingDay[0]->day ?? 'Null'}}</h3>
+            <small class="text-success fw-semibold"></i>{{ $lowestMeetingDay[0]->average ?? '0'}} People</small>
           </div>
         </div>
       </div>
