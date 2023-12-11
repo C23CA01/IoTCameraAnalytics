@@ -42,7 +42,7 @@
           <div class="card-body">
             <span class="d-block mb-1">Top Parking Day</span>
             <h4 class="card-title mb-2">{{ $topParkingDay[0]->day ?? 'Null'}}</h3>
-            <small class="text-success fw-semibold"></i>{{ $topParkingDay[0]->average }} Vehicle</small>
+            <small class="text-success fw-semibold"></i>{{ $topParkingDay[0]->average ?? '0'}} Vehicle</small>
           </div>
         </div>
       </div>
@@ -51,7 +51,7 @@
           <div class="card-body">
             <span class="d-block mb-1">Lowest Parking Day</span>
             <h4 class="card-title mb-2">{{ $lowestParkingDay[0]->day ?? 'Null'}}</h3>
-            <small class="text-success fw-semibold"></i>{{ $lowestParkingDay[0]->average }} Vehicle</small>
+            <small class="text-success fw-semibold"></i>{{ $lowestParkingDay[0]->average ?? '0'}} Vehicle</small>
           </div>
         </div>
       </div>
