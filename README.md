@@ -13,11 +13,36 @@ https://drive.google.com/drive/folders/1pJFGKdozDHO2j-OryDAubuwhTY9xcGsN?usp=sha
 ![Uji di local](./dokumentasi/ss4.png)
 
 ## Step by Step
+Please Make sure you've already have dataset whichis the contain is annotated by yolo format using labelimg
+
 1. Set runtime type using python3 and select hardware accelerator T4 GPU
-2. Run the following command to activate GPU
+2. Run the following command to activate GPU in google colab
+   
 ```bash
 !nvidia-smi
 ```
+3. Utilize existing storage on Google Drive
+
+```bash
+from google.colab import drive
+drive.mount('/content/drive')
+```
+4. for the preparation need some configure from Yolov3 darknet official repo:
+```bash
+!git clone https://github.com/AlexeyAB/darknet.git
+```
+
+5. set for configure and compile the repo
+```bash
+%cd /content/darknet/
+
+!sed -i 's/OPENCV=0/OPENCV=1/' Makefile
+!sed -i 's/GPU=0/GPU=1/' Makefile
+!sed -i 's/CUDNN=0/CUDNN=1/' Makefile
+
+!make
+```
+
 
 ## several failed development attempts
 - https://colab.research.google.com/drive/1u6zNZDtFcMFJ6-wIZwHRxpFovz-jo3ab?usp=sharing
