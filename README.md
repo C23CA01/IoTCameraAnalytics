@@ -12,6 +12,13 @@ https://drive.google.com/drive/folders/1pJFGKdozDHO2j-OryDAubuwhTY9xcGsN?usp=sha
 ## finally after training the pre-trained models, Converted to tensorflow(.h5) format and then can see the trainable layers :
 ![Uji di local](./dokumentasi/ss4.png)
 
+## Step by Step
+1. Set runtime type using python3 and select hardware accelerator T4 GPU
+2. Run the following command to activate GPU
+```bash
+!nvidia-smi
+```
+
 ## several failed development attempts
 - https://colab.research.google.com/drive/1u6zNZDtFcMFJ6-wIZwHRxpFovz-jo3ab?usp=sharing
 - https://colab.research.google.com/drive/1gPinDGV--SQj29wrdRhnrh4wgeJwmIf7?usp=sharing
