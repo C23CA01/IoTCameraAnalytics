@@ -52,7 +52,8 @@ from that repo I only did the GPU configuration and working environment, and cus
 
 ## Improvements
 ![Uji di local](./dokumentasi/ss5.png)
-              after all the processes from the steps above it will produce (.weights) as yolov3 format, where the training results file will be converted to tensorflow (.h5) format and that has been successful,
+
+after all the processes from the steps above it will produce (.weights) as yolov3 format, where the training results file will be converted to tensorflow (.h5) format and that has been successful,
 I wanted to make additional custom Dense Layer but I think it will take a lot of time 
 So I decided use the format (.h5) as Yolov3 Models to carry out inference prediction which is done at : 
 https://github.com/C23CA01/deploy-parking-models
