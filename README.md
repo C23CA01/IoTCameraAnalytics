@@ -51,6 +51,7 @@ drive.mount('/content/drive')
 from that repo I only did the GPU configuration and working environment, and customized the .cfg file to fit my dataset the process directed to my local drive, and I also Utilize the training procces in colab with existing pre-trained Yolov3 darknet 
 
 ## Improvements
+![Uji di local](./dokumentasi/ss5.png)
 after all the processes from the steps above it will produce (.weights) as yolov3 format, where the training results file will be converted to tensorflow (.h5) format and that has been successful,
 I wanted to make additional custom Dense Layer but I think it will take a lot of time 
 So I decided use the format (.h5) as Yolov3 Models to carry out inference prediction which is done at : 
